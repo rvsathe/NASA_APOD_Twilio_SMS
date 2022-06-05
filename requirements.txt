@@ -1,6 +1,7 @@
 Django==3.0.8
-celery==5.0.5
-django-celery-beat==2.2.1
-django-celery-results==2.2.0
+celery==5.2.6
+redis==4.3.1
+django-celery-beat
+django-celery-results==2.3.1
 ipython==7.16.1 # Run django shell in interactive shell
-flower==0.9.5
+flower==0.9.3

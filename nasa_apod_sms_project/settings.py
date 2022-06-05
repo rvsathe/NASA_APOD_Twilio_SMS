@@ -25,18 +25,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t&vqlojo7+q(03@uw$gyougem&3uywz4dmto&uis@bgqr+l-hi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # CELERY STUFF
-BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+BROKER_URL = 'redis://localhost:9000/0'
+CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Dhaka'
+CELERY_TIMEZONE = 'Asia/Kolkata'
 CELERY_IMPORTS = ['twilio_sms.tasks']
+CELERY_RESULT_CACHE = 'django-cache'
 
 # Application definition
 

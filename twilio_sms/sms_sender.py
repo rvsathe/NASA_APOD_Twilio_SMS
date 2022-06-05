@@ -2,9 +2,8 @@ from dotenv import load_dotenv
 load_dotenv()
 import os
 
-from django.db import models
 from twilio.rest import Client
-from .util import get_nasa_apod_from_api
+from .util import get_final_sms_object
 
 def send_sms(*args, **kwargs):
     account_sid = os.getenv("TWILIO_ACCOUNT_SID")
@@ -14,7 +13,7 @@ def send_sms(*args, **kwargs):
 
     client = Client(account_sid, auth_token)
 
-    sms_obj = get_nasa_apod_from_api()
+    sms_obj = get_final_sms_object()
 
     title = sms_obj['title']
     picture = sms_obj['image_url'] 
