@@ -1,7 +1,9 @@
+python=3.9.6
+python-dotenv
 Django==3.0.8
 celery==5.2.6
 redis==4.3.1
-django-celery-beat
+django-celery-beat==2.0.0
 django-celery-results==2.3.1
 ipython==7.16.1 # Run django shell in interactive shell
 flower==0.9.3
