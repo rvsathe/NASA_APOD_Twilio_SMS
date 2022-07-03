@@ -36,7 +36,7 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Kolkata'
-CELERY_IMPORTS = ['twilio_sms.tasks']
+CELERY_IMPORTS = ['nasa_apod_sms_project.tasks']
 CELERY_RESULT_CACHE = 'django-cache'
 
 # Application definition
@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_beat',
     'django_celery_results',
-    'twilio_sms',
 ]
 
 MIDDLEWARE = [

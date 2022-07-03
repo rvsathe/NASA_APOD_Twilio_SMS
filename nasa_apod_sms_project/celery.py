@@ -3,16 +3,17 @@ import os
 from celery import Celery
 from celery.schedules import crontab
 from celery import shared_task
+import nasa_apod_sms_project.tasks
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE','nasa_apod_sms_project.settings')
-app = Celery('nasa_apod_sms_project')
+app = Celery('nasa_apod_sms_project',include=['nasa_apod_sms_project.tasks'])
 
 app.config_from_object('django.conf:settings')
 
 app.conf.beat_schedule = {
-    'everyday-9.00am':{
-        'task': 'twilio_sms.tasks.send_sms_from_twilio_number_task',
-        'schedule': crontab(minute='00',hour='09'), ## (minute='*/5') # every five minutes
+    'everyday-10.00am':{
+        'task': 'nasa_apod_sms_project.tasks.send_sms_from_twilio_number_task',
+        'schedule': crontab(minute='29',hour='09'), ## (minute='*/5') # every five minutes
     }
 }
 
