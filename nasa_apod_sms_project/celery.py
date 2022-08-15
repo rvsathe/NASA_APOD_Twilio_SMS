@@ -13,7 +13,7 @@ app.config_from_object('django.conf:settings')
 app.conf.beat_schedule = {
     'everyday-10.00am':{
         'task': 'nasa_apod_sms_project.tasks.send_sms_from_twilio_number_task',
-        'schedule': crontab(minute='29',hour='09'), ## (minute='*/5') # every five minutes
+        'schedule': crontab(minute='00',hour='10'),
     }
 }
 
